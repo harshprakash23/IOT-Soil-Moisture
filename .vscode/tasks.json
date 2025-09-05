@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run simulator (python src/run.py)",
+      "type": "shell",
+      "command": "${config:python.defaultInterpreterPath} src/run.py",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

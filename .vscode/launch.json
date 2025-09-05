@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Simulator & Uploader",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/run.py",
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "name": "Run Flask Dashboard",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/dashboard/app.py",
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
