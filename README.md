@@ -69,7 +69,8 @@ python src/dashboard/app.py
 Set your ThingSpeak channel ID and API keys in `src/config.py` and `thingspeak-react/src/App.jsx`.
 
 ## Screenshots
-![Dashboard Screenshot](thingspeak-react/public/vite.svg)
+<img width="597" height="927" alt="image" src="https://github.com/user-attachments/assets/caf1994d-23a6-4283-9e3c-3c1458d4c155" />
+
 
 ## License
 MIT
