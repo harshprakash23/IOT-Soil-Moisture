@@ -1,98 +1,78 @@
-# IoT-Based Cloud Soil Moisture Monitoring (Software Simulation)
+# React Frontend Dashboard
 
-A **software-only** project that simulates a soil moisture sensor and uploads readings to **ThingSpeak Cloud**.
-Comes with an optional **Flask dashboard** to visualize recent values.
+The `thingspeak-react` folder contains a modern React dashboard for real-time visualization of soil moisture data. It features:
+- Live charting and historical trends
+- Status cards for current, average, and last update
+- Responsive design for desktop and mobile
+- Table of recent readings
 
-> Rate limit note: ThingSpeak allows **1 update every 15 seconds** per channel.
+#### Setup & Usage
+1. Open a terminal and navigate to the frontend folder:
+	```sh
+	cd thingspeak-react
+	npm install
+	npm run dev
+	```
+2. Visit [http://localhost:5173](http://localhost:5173) in your browser.
+3. Configure your ThingSpeak channel ID and API keys in `src/App.jsx` if needed.
 
 ---
 
-## 📦 Project Structure
+# IOT Soil Moisture Monitoring System
+
+## Overview
+This project is an end-to-end IoT solution for monitoring soil moisture in real time. It includes a Python-based simulator, data uploader to ThingSpeak, and a modern React dashboard for visualization.
+
+## Features
+- **Simulator:** Simulates soil moisture sensor readings.
+- **Uploader:** Sends data to ThingSpeak IoT cloud.
+- **Dashboard:** Beautiful React frontend for live data visualization and historical trends.
+- **Configurable:** Easily adjust update intervals and API keys.
+
+## Folder Structure
+- `src/` - Python backend (simulator, uploader, config)
+- `src/dashboard/` - Flask dashboard backend (optional)
+- `thingspeak-react/` - React frontend dashboard
+
+## Getting Started
+
+### 1. Python Backend
+#### Install dependencies
+```sh
+pip install -r requirements.txt
 ```
-iot-soil-moisture-sim/
-├─ .vscode/
-│  ├─ launch.json
-│  └─ tasks.json
-├─ src/
-│  ├─ config.py
-│  ├─ simulator.py
-│  ├─ uploader.py
-│  ├─ run.py
-│  └─ dashboard/
-│     └─ app.py
-├─ .env.example
-├─ requirements.txt
-└─ README.md
+
+#### Run the simulator
+```sh
+python src/run.py
 ```
 
----
+#### Configuration
+Edit `src/config.py` to set your ThingSpeak API keys and update interval.
 
-## ✅ Prerequisites
-- Python **3.10+**
-- VS Code
-- A free **ThingSpeak** account and channel (Channel ID + **Write API Key**, optional **Read API Key**)
+### 2. React Frontend
+#### Setup
+```sh
+cd thingspeak-react
+npm install
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
----
+### 3. Dashboard (Optional)
+If using the Flask dashboard:
+```sh
+python src/dashboard/app.py
+```
 
-## 🚀 Quick Start (VS Code)
-1) **Open this folder in VS Code**  
-2) Create a virtual environment (Terminal → New Terminal):
-   - **Windows (PowerShell):**
-     ```powershell
-     python -m venv .venv
-     .\.venv\Scripts\Activate.ps1
-     ```
-   - **macOS / Linux:**
-     ```bash
-     python3 -m venv .venv
-     source .venv/bin/activate
-     ```
-3) **Install dependencies**  
-   ```bash
-   pip install -r requirements.txt
-   ```
+## ThingSpeak Integration
+Set your ThingSpeak channel ID and API keys in `src/config.py` and `thingspeak-react/src/App.jsx`.
 
-4) **Configure environment variables**  
-   - Duplicate `.env.example` → rename to `.env`  
-   - Fill in your `THINGSPEAK_WRITE_API_KEY`, `THINGSPEAK_CHANNEL_ID` (and optional `THINGSPEAK_READ_API_KEY`).
+## Screenshots
+![Dashboard Screenshot](thingspeak-react/public/vite.svg)
 
-5) **Run the simulator + uploader (recommended)**  
-   - Press **F5** in VS Code (Debug) or run:
-     ```bash
-     python src/run.py
-     ```
-
-6) **View your ThingSpeak channel** to see live updates.
-
-7) **(Optional) Run the local Flask dashboard**
-   ```bash
-   python src/dashboard/app.py
-   ```
-   Open http://127.0.0.1:5000/
+## License
+MIT
 
 ---
-
-## 🧪 What to Expect
-- Console prints a new moisture value every 15 seconds and upload status.
-- ThingSpeak updates your chart live.
-- Local dashboard shows the last N values and a simple status.
-
----
-
-## 🔧 Customization
-- Edit thresholds in `simulator.py` (`DRY`, `WET`).
-- Tweak the simulated pattern (diurnal curve + noise).
-- Change upload interval in `run.py` (ensure ≥ 15s for ThingSpeak).
-
----
-
-## ❓ Troubleshooting
-- **HTTP 0 / timeouts** → Check your internet connection.
-- **HTTP 429 (Too Many Requests)** → Increase interval ≥ 15s.
-- **Invalid API key** → Re-check `.env` values.
-- **No graph updates** → Ensure you used the correct **channel** (Channel ID) and **Field1** is used.
-
----
-
-## 📜 License
-MIT (do whatever you want, educational use encouraged).
+Made with ❤️ by harshprakash23
